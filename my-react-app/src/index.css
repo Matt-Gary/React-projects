@@ -1,0 +1,85 @@
+.card {
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  max-width: 250px;
+  display: inline-block;
+}
+
+.card .card-image{
+  
+  width: 50%;
+  height: 135px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.card .card-title{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: rgb(0, 26, 255);
+}
+
+.card .card-description{
+  font-family: Arial, sans-serif;
+  color:black;
+}
+.button {
+  background-color: hsl(200, 100%, 50%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border:none;
+  cursor: pointer;
+}
+.student {
+  font-family: Arial, sans-serif;
+  font-size: 2em;
+  padding: 10px;
+  border: 1px solid black;
+}
+.student p{
+  margin:0;
+}
+.welcome-messgae {
+  font-size: 2.5em;
+  background-color: green;
+  color: white;
+  padding:10px;
+  border-radius: 20px;
+  margin: 0;
+}
+.login-prompt {
+  font-size: 2.5em;
+  background-color: rgb(128, 0, 0);
+  color: white;
+  padding:10px;
+  border-radius: 20px;
+  margin: 0;
+}
+
+.list-category {
+  font-size: 2.5em;
+  font-weight: bold;
+  color:grey;
+  margin-bottom: 10px;
+  text-align: center;
+  border: 3px solid;
+  border-radius: 5px;
+  background-color: aquamarine;
+}
+
+.list-items li{
+  font-size: 2em;
+  list-style: none;
+  color: rgba(24, 23, 23, 0.281);
+  text-align: center;
+  margin:0;
+}
+.list-items li:hover {
+      color: yellow;
+      cursor:pointer;
+}
