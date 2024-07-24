@@ -4,7 +4,7 @@ import UserGreeting from "./UserGreeting.jsx";
 import List from "./List.jsx"
 import Button from "./Button.jsx"
 import ProfilePicture from "./ProfilePicture.jsx";
-
+import MyComponents from "./MyComponents.jsx";
 
 function App() {
   const fruits = [{id:1, name:"apple", calories:95}, 
@@ -36,6 +36,8 @@ function App() {
     
     <ProfilePicture/>
     <Button/>
+
+    <MyComponents/>
     
     </>
   );

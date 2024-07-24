@@ -1,10 +1,11 @@
+import ProfilePicture from "./ProfilePicture"
 
 function button() {
 
-const handleClick = (e) => e.target.textContent = "ouch"
+const handleClick = (e) => e.target.style.display = "flex";
 
     return(<>
-        <button onDoubleClick={(e) => handleClick(e)}>Click me</button>
+        <button onClick={(e) => handleClick(e)} src={ProfilePicture.imageUrl}>Click me</button>
     </>)
 }
 
