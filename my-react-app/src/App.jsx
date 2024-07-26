@@ -5,6 +5,9 @@ import List from "./List.jsx"
 import Button from "./Button.jsx"
 import ProfilePicture from "./ProfilePicture.jsx";
 import MyComponents from "./MyComponents.jsx";
+import Counter from "./Counter.jsx"
+import OnChangeHandler from "./OnChangeHandler.jsx";
+import ColorPicker from "./ColorPicker.jsx";
 
 function App() {
   const fruits = [{id:1, name:"apple", calories:95}, 
@@ -25,12 +28,10 @@ function App() {
     <>
     <UserGreeting isLoggedIn={true}/>
     <Card/>
-    <Card/>
+    <ColorPicker/>
     <Student name="Spongebob" age={30} isStudent={true}/>
     <Student name="Patrick" age={42} isStudent={false}/>
-    <Student name="Alicia" age={50} isStudent={false}/>
-    <Student name="Sandy" age={27} isStudent={true}/>
-    <Student/>
+
     {fruits.length > 0 ? <List items = {fruits} category="Fruits"/> : null}
     {vegetables.length > 0 && <List items = {vegetables} category="Vegetables"/>}
     
@@ -38,8 +39,10 @@ function App() {
     <Button/>
 
     <MyComponents/>
-    
+    <Counter/>
+    <OnChangeHandler/>
     </>
+
   );
 }
 
