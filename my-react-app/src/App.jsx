@@ -8,6 +8,9 @@ import MyComponents from "./MyComponents.jsx";
 import Counter from "./Counter.jsx"
 import OnChangeHandler from "./OnChangeHandler.jsx";
 import ColorPicker from "./ColorPicker.jsx";
+import UpdateArray from "./UpdateArray.jsx";
+import UpdateArrayOfObject from "./UpdateArrayOfObject.jsx"
+
 
 function App() {
   const fruits = [{id:1, name:"apple", calories:95}, 
@@ -41,7 +44,10 @@ function App() {
     <MyComponents/>
     <Counter/>
     <OnChangeHandler/>
+    <UpdateArray/>
+    <UpdateArrayOfObject/>
     </>
+
 
   );
 }
