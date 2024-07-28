@@ -147,3 +147,68 @@ input[type="color"] {
   padding: 5px;
   border-radius: 10px;
 }
+
+.to-do-list{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
+h1{
+  font-size: 4rem;
+}
+button{
+  color:white;
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.add-button{
+  background-color: chartreuse;
+}
+.add-button:hover{
+  background-color: rgba(8, 211, 8, 0.918);
+}
+.delete-button{
+  background-color: rgba(255, 0, 0, 0.733);
+}
+.delete-button:hover{
+  background-color: rgba(172, 5, 5, 0.966);
+}
+.move-button{
+  background-color: rgba(0, 132, 255, 0.733);
+}
+.move-button:hover{
+  background-color: rgba(4, 65, 145, 0.966);
+}
+
+input[type="text"] {
+  font-size: 1.6rem;
+  padding:10px;
+  border: 2px solid rgb(238, 230, 230);
+  border-radius: 5px;
+}
+ol{
+
+}
+li{
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 15px;
+  background-color: rgb(190, 177, 177);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.text{
+  flex:1
+}
+.delete-button, .move-button {
+  padding:8px 12px;
+  font-size: 1.4rem;
+  margin:5px 5px;
+}

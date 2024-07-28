@@ -10,7 +10,7 @@ import OnChangeHandler from "./OnChangeHandler.jsx";
 import ColorPicker from "./ColorPicker.jsx";
 import UpdateArray from "./UpdateArray.jsx";
 import UpdateArrayOfObject from "./UpdateArrayOfObject.jsx"
-
+import ToDoList from "./ToDoList.jsx";
 
 function App() {
   const fruits = [{id:1, name:"apple", calories:95}, 
@@ -29,7 +29,7 @@ function App() {
 
   return(
     <>
-    <UserGreeting isLoggedIn={true}/>
+    {/* <UserGreeting isLoggedIn={true}/>
     <Card/>
     <ColorPicker/>
     <Student name="Spongebob" age={30} isStudent={true}/>
@@ -45,7 +45,8 @@ function App() {
     <Counter/>
     <OnChangeHandler/>
     <UpdateArray/>
-    <UpdateArrayOfObject/>
+    <UpdateArrayOfObject/> */}
+    <ToDoList/>
     </>
 
 
