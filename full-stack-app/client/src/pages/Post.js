@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react"; 
+import { useParams } from "react-router-dom"; //let us to use parameters in our app in react router
 import axios from "axios";
 
 function Post() {
-  let { id } = useParams();
-  const [postObject, setPostObject] = useState({});
+  let { id } = useParams(); //getting value that we pass in our params in App.js path="/posts/byId/:id"
+  const [postObject, setPostObject] = useState({}); // create state that will hold that data and allow us to dispaly it
 
-  useEffect(() => {
+  useEffect(() => { //fetching data based on that ID
     axios.get(`http://localhost:4000/posts/byId/${id}`).then((response) => {
       setPostObject(response.data);
     });

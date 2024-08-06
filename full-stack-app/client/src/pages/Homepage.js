@@ -1,12 +1,12 @@
 import React from 'react'
 import axios from "axios"
 import {useEffect, useState} from "react"
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom' //help to navigate to other places in our application
 
 
 function Homepage() {
     const [listOfPosts, setListOfPosts] = useState([])  
-    let navigate = useNavigate()
+    let navigate = useNavigate() // assigning variable to function, lets us change the route 
 
 
     useEffect(() => {
@@ -23,7 +23,7 @@ function Homepage() {
             <div
               className="post"
               key={key}
-              onClick={() => navigate(`/posts/byId/${value.id}`)} //redirect to the particular path after clicking post
+              onClick={() => navigate(`/posts/byId/${value.id}`)} //redirect to the particular path (id) after clicking post
             >
               <div className="title">{value.title}</div>
               <div className="body">{value.postText}</div>

@@ -10,8 +10,8 @@ router.get("/", async (req, res) => {
 })
 
 router.get('/byId/:id', async (req, res) => {
-    const id = req.params.id
-    const post = await Posts.findByPk(id) //using sequelizer function that take primaty key
+    const id = req.params.id //getting ID - id should be the same as in the path :id
+    const post = await Posts.findByPk(id) //using sequelizer function that take primary key
     if (post) {
         res.json(post);
       } else {
