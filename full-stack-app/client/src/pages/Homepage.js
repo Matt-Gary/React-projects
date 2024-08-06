@@ -23,7 +23,7 @@ function Homepage() {
             <div
               className="post"
               key={key}
-              onClick={() => navigate(`/posts/byId/${value.id}`)}
+              onClick={() => navigate(`/posts/byId/${value.id}`)} //redirect to the particular path after clicking post
             >
               <div className="title">{value.title}</div>
               <div className="body">{value.postText}</div>
