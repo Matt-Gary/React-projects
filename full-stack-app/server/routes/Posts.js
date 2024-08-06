@@ -9,6 +9,17 @@ router.get("/", async (req, res) => {
     res.json(listOfPost)
 })
 
+router.get('/byId/:id', async (req, res) => {
+    const id = req.params.id
+    const post = await Posts.findByPk(id) //using sequelizer function that take primaty key
+    if (post) {
+        res.json(post);
+      } else {
+        res.status(404).json({ error: "Post not found" });
+      }
+    });
+
+
 router.post("/", async (req, res) => {
     const post = req.body
     await Posts.create(post)
