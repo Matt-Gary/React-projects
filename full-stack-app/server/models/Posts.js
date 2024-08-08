@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const Posts = sequelize.define("Posts", {
+    const Posts = sequelize.define("Posts", { //name of table in database
         title: {
             type: DataTypes.STRING,
             allowNull: false,
