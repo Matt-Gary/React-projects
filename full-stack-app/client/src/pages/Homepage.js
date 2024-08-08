@@ -19,7 +19,7 @@ function Homepage() {
     return (
       <>
         <div>
-          {listOfPosts.map((value, key) => (
+          {listOfPosts.map((value, key) =>(
             <div
               className="post"
               key={key}
