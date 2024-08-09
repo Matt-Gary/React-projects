@@ -26,12 +26,22 @@ function Post() {
     .post('http://localhost:4000/comments', {
       commentBody: newComment, //passed new comment to the comment body taht we wanna add
       PostId: id //passes the post Id so it recognize which post we are talking about
-    })
+    },//we passing headers- config object 
+    {
+      headers: {
+        accessToken: sessionStorage.getItem("accessToken") //must be the same that we created in our middleware.js const accessToken = req.header("accessToken") and pass actual token
+      }
+    }
+  )
     .then((response) => { 
+      if (response.data.error) { 
+        alert(response.data.error) //if error return error
+      } else {
       const commentToAdd = {commentBody: newComment} //setting variable with a new comment
       setComments([...comments, commentToAdd])  //automatically add comment and refresh a page, 
       //grabbing all comments (...comments) and adding new one
       setNewComment("") //clean the value inside the input field
+      }
     })
   }
   

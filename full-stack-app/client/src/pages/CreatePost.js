@@ -21,7 +21,7 @@ function CreatePost() {
       //submit
       const onSubmit = (data) => {
         axios.post("http://localhost:4000/posts", data).then((response) => {
-            navigate('/') //redirected to home page agter clicking submit 
+            navigate('/') //redirected to home page after clicking submit 
             alert("Post created")
         });
       };

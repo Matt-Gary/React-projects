@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const {Comments} = require('../models')
-
+const { validateToken } = require('../middlewares/AuthMiddleware')
 
 router.get('/:postId', async (req, res) => {
     const postId = req.params.postId //getting ID - id should be the same as in the path :postId'
@@ -14,7 +14,7 @@ router.get('/:postId', async (req, res) => {
       }
     });
     // create the routs that's gonna create comments
-    router.post("/", async (req, res) => { //create post req for the comment
+    router.post("/", validateToken, async (req, res) => { //create post req for the comment
         const comment = req.body
         await Comments.create(comment)
         res.json(comment)
