@@ -9,12 +9,13 @@ const validateToken = (req, res, next) => { //next funstion you call whe you wan
         //if they have token we need to check if is valid
 
     try {
+        //validToken is our payload data without hash- it's username and ID that we send to create token
         const validToken = verify(accessToken, "importantsecret")//represent if token is valid or not
-        
+        req.user= validToken
         if (validToken) {
             return next() //moving foward with request
         }
-    } catch (error){
+    } catch (err){
         return res.json({error: err})
     }
 

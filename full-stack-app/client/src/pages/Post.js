@@ -29,7 +29,7 @@ function Post() {
     },//we passing headers- config object 
     {
       headers: {
-        accessToken: sessionStorage.getItem("accessToken") //must be the same that we created in our middleware.js const accessToken = req.header("accessToken") and pass actual token
+        accessToken: localStorage.getItem("accessToken") //must be the same that we created in our middleware.js const accessToken = req.header("accessToken") and pass actual token
       }
     }
   )
@@ -37,7 +37,7 @@ function Post() {
       if (response.data.error) { 
         alert(response.data.error) //if error return error
       } else {
-      const commentToAdd = {commentBody: newComment} //setting variable with a new comment
+      const commentToAdd = {commentBody: newComment, username: response.data.username} //setting variable with a new comment
       setComments([...comments, commentToAdd])  //automatically add comment and refresh a page, 
       //grabbing all comments (...comments) and adding new one
       setNewComment("") //clean the value inside the input field
@@ -64,6 +64,7 @@ function Post() {
             return (
               <div key={key} className="comment">
                 {comment.commentBody}
+                <label>Username: {comment.username}</label>
               </div>
             );
           })}

@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
 //getting data for user
     const {username, password} = req.body //assuming that whatever post request we do we nee dpassword and username
 //destructruring the object, taking password and username 
-    bcrypt.hash(password, 10).then((hash) => { //time to hash the password, this will hash our password
+    bcrypt.hash(password, 10).then((hash) => { //10- time to hash the password, this will hash our password-
         //tell to add user to our users database
         Users.create({
             username: username,
@@ -44,5 +44,6 @@ router.post('/login', async(req, res) => {
     })
 
 })
-
+//route to check if token is valid
+router.get('/auth', (req, res))
 module.exports = router

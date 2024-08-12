@@ -1,10 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import axios from "axios"
 import {useNavigate} from 'react-router-dom'
+import { AuthContext } from '../helpers/AuthContext'
 
 function Login() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    //we want to access the function which is able to change the authstate
+    const {setAuthState}= useContext(AuthContext)
 
     let navigate = useNavigate()
     
@@ -17,14 +20,12 @@ function Login() {
                 alert(response.data.error) //if there is error it will display error for us
             } else {
                    //we want to set some sort of items into our session storage
-                sessionStorage.setItem("accessToken", response.data ) //fisrt value is the key for your value, second value for item
+                localStorage.setItem("accessToken", response.data ) //fisrt value is the key for your value, second value for item
             //acctual token that we received
+                setAuthState(true)
                 navigate("/")
             }
-             
         })
-
-
     }
 
     //onchange-> we're setting out state to be equal whatever we provide in input
