@@ -16,7 +16,8 @@ router.get('/:postId', async (req, res) => {
     // create the routs that's gonna create comments
     router.post("/", validateToken, async (req, res) => { //create post req for the comment
         const comment = req.body
-        const username = req.user.username
+        const username = req.user.username //connected from middleware  req.user= validToken
+        //comment object has a username field which is equal to username that we got from authenticated user
         comment.username = username //adding field username to comment object
         await Comments.create(comment)
         res.json(comment)

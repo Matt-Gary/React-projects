@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt")
 
 //to generate a token need to use a functionn called sign- create a token
 const {sign} = require('jsonwebtoken')
+const { validateToken } = require('../middlewares/AuthMiddleware')
 
 //insert into our user table
 router.post("/", async (req, res) => {
@@ -45,5 +46,7 @@ router.post('/login', async(req, res) => {
 
 })
 //route to check if token is valid
-router.get('/auth', (req, res))
+router.get('/auth', validateToken, (req, res) => {
+    res.json(req.user)
+})
 module.exports = router

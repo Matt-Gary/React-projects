@@ -7,14 +7,22 @@ import Login from './pages/Login';
 import Registration from './pages/Registration';
 import {AuthContext} from './helpers/AuthContext'
 import { useState, useEffect } from 'react';
+import axios from 'axios'
 
 function App() {
   const [authState, setAuthState] = useState(false) //boolean checking if you are log in or not
-
+  //if Access token is in the storage, setAuthstate to true
   useEffect(()=> {
-    if (localStorage.getItem('accessToken')) {
-      setAuthState(true)
-    }
+    //making request 
+    axios.get('http://localhost:4000/auth/auth', {headers:{
+      accessToken: localStorage.getItem("accessToken")
+    }}).then((response) => {
+      if (response.data.error) {
+        setAuthState(false)
+      } else {
+        setAuthState(true)
+      }
+    })
   }, [])
 
   return (

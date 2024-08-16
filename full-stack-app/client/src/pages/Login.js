@@ -7,7 +7,7 @@ function Login() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     //we want to access the function which is able to change the authstate
-    const {setAuthState}= useContext(AuthContext)
+    const {setAuthState}= useContext(AuthContext) //access function which is able to change state out Authstate
 
     let navigate = useNavigate()
     
@@ -22,7 +22,7 @@ function Login() {
                    //we want to set some sort of items into our session storage
                 localStorage.setItem("accessToken", response.data ) //fisrt value is the key for your value, second value for item
             //acctual token that we received
-                setAuthState(true)
+                setAuthState(true) //change Authstate to true
                 navigate("/")
             }
         })

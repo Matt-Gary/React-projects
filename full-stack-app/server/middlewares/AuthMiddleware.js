@@ -11,7 +11,7 @@ const validateToken = (req, res, next) => { //next funstion you call whe you wan
     try {
         //validToken is our payload data without hash- it's username and ID that we send to create token
         const validToken = verify(accessToken, "importantsecret")//represent if token is valid or not
-        req.user= validToken
+        req.user = validToken //to access username in our request
         if (validToken) {
             return next() //moving foward with request
         }
