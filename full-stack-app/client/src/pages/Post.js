@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react"; 
+import React, { useEffect, useState, useContext } from "react"; 
 import { useParams } from "react-router-dom"; //let us to use parameters in our app in react router
 import axios from "axios";
+import { AuthContext } from '../helpers/AuthContext'
+
 
 function Post() {
   let { id } = useParams(); //getting value that we pass in our params in App.js path="/posts/byId/:id"
@@ -8,6 +10,7 @@ function Post() {
   const [comments, setComments] = useState([])
   //create state taht hold value from comment inpu
   const [newComment, setNewComment] = useState("")
+  const {authState}= useContext(AuthContext) //access which user is log in
 
 
   useEffect(() => { //fetching data based on that ID immediately after render a page
@@ -44,6 +47,17 @@ function Post() {
       }
     })
   }
+  const deleteComment = (id) => {
+    axios.delete(`http://localhost:4000/comments/${id}`, //request to the id in the end point
+      {headers: {accessToken: localStorage.getItem('accessToken')}, //passing accessToken as a part of our request
+    }).then(() => {
+      setComments(comments.filter((val) => {
+        //we want to keep that comment in our comment list if its Id =/ to our deleted comment iD
+        return val.id !== id;
+      }))
+    })
+
+  }
   
   return (
     <div className="postPage">
@@ -65,6 +79,7 @@ function Post() {
               <div key={key} className="comment">
                 {comment.commentBody}
                 <label>Username: {comment.username}</label>
+                {authState.username === comment.username && <button onClick={() => {deleteComment(comment.id)}}>X</button>} {/**  */}
               </div>
             );
           })}

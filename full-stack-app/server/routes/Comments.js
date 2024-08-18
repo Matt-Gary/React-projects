@@ -22,5 +22,14 @@ router.get('/:postId', async (req, res) => {
         await Comments.create(comment)
         res.json(comment)
     })
+    router.delete('/:commentId', validateToken, async (req, res) => {
+      const commentId = req.params.commentId //grab comment ID
+      //using sequelize to delete comment
+      await Comments.destroy({where: { //inside Comments tabel we want to delete wit particular id
+        id: commentId,
+      }})
+      //setting response
+      res.json("DELETED SUCCESSFULLY")
+    })
 
 module.exports = router //to make sure that route will work wwe must export it
