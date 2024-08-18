@@ -20,9 +20,9 @@ function Login() {
                 alert(response.data.error) //if there is error it will display error for us
             } else {
                    //we want to set some sort of items into our session storage
-                localStorage.setItem("accessToken", response.data ) //fisrt value is the key for your value, second value for item
+                localStorage.setItem("accessToken", response.data.token ) //fisrt value is the key for your value, second value for item
             //acctual token that we received
-                setAuthState(true) //change Authstate to true
+                setAuthState({username: response.data.username, id:response.data.id, status: true}) //change Authstate to true
                 navigate("/")
             }
         })

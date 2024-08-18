@@ -40,7 +40,7 @@ router.post('/login', async(req, res) => {
         //we grabbing our token and data inside the token is an object with username and id that its log in
         const accessToken = sign({username: user.username, id:user.id},"importantsecret") //put inside a data that we want to secure- turn into our token- it's gonna hash a data
         //we create access to this token to our access token:
-        return res.json(accessToken) 
+        return res.json({token: accessToken, username: username, id: user.id}) 
         //we gonna set that token into our session storage- whenerev we make any request we gonna use this token as a part of headers
     })
 

@@ -10,7 +10,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 function App() {
-  const [authState, setAuthState] = useState(false) //boolean checking if you are log in or not
+  const [authState, setAuthState] = useState({
+    username: "", 
+    id: 0, 
+    status: false //bolleen representing if we lgo in or not
+  }) //creating object 
   //if Access token is in the storage, setAuthstate to true
   useEffect(()=> {
     //making request 
@@ -18,13 +22,23 @@ function App() {
       accessToken: localStorage.getItem("accessToken")
     }}).then((response) => {
       if (response.data.error) {
-        setAuthState(false)
+        setAuthState({...authState, status:false }) //we grabbing the authstate but we changing only status
       } else {
-        setAuthState(true)
-      }
+        setAuthState({
+        username: response.data.username, 
+        id: response.data.id, 
+        status: true //bolleen representing if we lgo in or not
+      })}
     })
-  }, [])
+  }, [authState])
 
+  const logout = () => {
+    localStorage.removeItem("accessToken")
+    setAuthState({ //we clear state after log out 
+      username: "", 
+      id: 0, 
+      status: false //bolleen representing if we lgo in or not
+    })  }
   return (
     <div className="App"> 
     <AuthContext.Provider value={{authState, setAuthState}}>
@@ -33,12 +47,15 @@ function App() {
         <div className='navbar'>
         <Link to="/createpost"> Create a Post</Link>
         <Link to="/"> Go Homepage</Link> 
-        {!authState && (
+        {!authState.status ? (
           <>
           <Link to="/login"> Login</Link>  
         <Link to="/registration"> Registration</Link>  
           </>
+        ) : (
+          <button onClick={logout}>Logout</button>
         )}
+        {authState.username}
         </div>
         <Routes>
           <Route path="/" element={<Homepage/>}/>
